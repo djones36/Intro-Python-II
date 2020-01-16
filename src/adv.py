@@ -54,16 +54,17 @@ room['treasure'].s_to = room['narrow']
 # Let a player input thier name
 player = Player(input('Please enter your name '), room["outside"])
 
-print(player.name)
+print(player.current_room)
 
 directions = ["n", "s", "e", "w"]
 # Create basic REPL loop
 
 while True:
-    cmd = input("~>").lower()
+    cmd = input("~~>").lower()
     if cmd in directions:
         # make palyer travel in that direction
-    elif cmd in directions:
+        player.travel(cmd)
+    elif cmd == "q":
         # quite
         print('GoodBye!')
         exit()
